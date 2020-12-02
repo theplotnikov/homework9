@@ -1,0 +1,11 @@
+---
+# tasks file for webserver
+- name: isntall nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: copy index.html
+  copy: src=index.html dest={{dest_folder}}/index.html
+  notify:
+  - restart nginx
